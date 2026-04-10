@@ -69,14 +69,14 @@
 
         .logo-wrap {
             position: relative;
-            width: 90px;
-            height: 90px;
-            margin: 0 auto 20px;
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 24px;
         }
 
         .logo-wrap img {
-            width: 90px;
-            height: 90px;
+            width: 160px;
+            height: 160px;
             object-fit: contain;
             filter: brightness(0) invert(1);
         }
@@ -136,11 +136,14 @@
         }
 
         /* ── AVAILABILITY BAR ── */
-        .avail-bar {
+        .avail-bar-outer {
             background: #111;
             border-bottom: 1px solid #222;
+        }
+
+        .avail-bar {
             color: var(--white);
-            padding: 14px 24px;
+            padding: 14px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -426,18 +429,22 @@
         <div class="contact-bar">
             <div class="contact-item">📍 Fort Collins, CO &amp; Northern Colorado</div>
             <div class="contact-item"><a href="tel:+19706580425">(970) 658-0425</a></div>
-            <div class="contact-item"><a href="mailto:info@harbingerdocs.com">info@harbingerdocs.com</a></div>
+            <div class="contact-item"><a href="/cdn-cgi/l/email-protection#94fdfaf2fbd4fcf5e6f6fdfaf3f1e6f0fbf7e7baf7fbf9"><span class="__cf_email__" data-cfemail="adc4c3cbc2edc5ccdfcfc4c3cac8dfc9c2cede83cec2c0">[email&#160;protected]</span></a></div>
             <div class="contact-item"><a href="https://harbingerdocs.com">harbingerdocs.com</a></div>
         </div>
     </div>
 </header>
 
-<div class="avail-bar">
-    <div>
-        <div class="avail-main">Available 7 Days a Week</div>
-        <div class="avail-sub">Standard Hours: Mon–Sun 8:00 AM – 10:00 PM</div>
+<div class="avail-bar-outer">
+    <div class="container">
+        <div class="avail-bar">
+            <div>
+                <div class="avail-main">Available 7 Days a Week</div>
+                <div class="avail-sub">Standard Hours: Mon–Sun 8:00 AM – 10:00 PM</div>
+            </div>
+            <div class="avail-sub">Same-day &amp; after-hours available — call or text</div>
+        </div>
     </div>
-    <div class="avail-sub">Same-day &amp; after-hours available — call or text</div>
 </div>
 
 <main class="content">
@@ -606,12 +613,4 @@
             <p>Errors &amp; Omissions Insurance · Bonded</p>
             <div class="legal">
                 © 2026 Harbinger Document Services. All rights reserved.<br>
-                Not an attorney. Cannot provide legal advice or draft legal documents.
-            </div>
-        </footer>
-    </div>
-
-</main>
-
-</body>
-</html>
+                Not 
