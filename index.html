@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harbinger Document Services | Mobile Notary & Document Solutions | Fort Collins, CO</title>
+    <meta name="description" content="Mobile notary, loan signing, process serving, and document solutions for Northern Colorado. We come to you—construction sites, offices, campuses, homes.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0a0a0a;
+            --white: #ffffff;
+            --gray: #888888;
+            --light-gray: #f5f5f5;
+            --border: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Barlow', sans-serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            background: var(--black);
+            color: var(--white);
+            padding: 56px 0 44px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 39px,
+                rgba(255,255,255,0.03) 39px,
+                rgba(255,255,255,0.03) 40px
+            ),
+            repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 39px,
+                rgba(255,255,255,0.03) 39px,
+                rgba(255,255,255,0.03) 40px
+            );
+        }
+
+        .logo-wrap {
+            position: relative;
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 20px;
+        }
+
+        .logo-wrap img {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+
+        /* Fallback shield if image not loaded */
+        .logo-fallback {
+            width: 90px;
+            height: 90px;
+            border: 2px solid rgba(255,255,255,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 38px;
+            letter-spacing: 3px;
+            margin-bottom: 6px;
+            position: relative;
+        }
+
+        .tagline {
+            font-size: 12px;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 500;
+            margin-bottom: 28px;
+            position: relative;
+        }
+
+        .contact-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px 24px;
+            position: relative;
+        }
+
+        .contact-item {
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .contact-item a {
+            color: var(--white);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.25);
+            padding-bottom: 1px;
+            transition: border-color 0.2s;
+        }
+
+        .contact-item a:hover {
+            border-color: var(--white);
+        }
+
+        /* ── AVAILABILITY BAR ── */
+        .avail-bar {
+            background: #111;
+            border-bottom: 1px solid #222;
+            color: var(--white);
+            padding: 14px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 6px;
+            font-size: 13px;
+        }
+
+        .avail-bar .avail-main {
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 12px;
+        }
+
+        .avail-bar .avail-sub {
+            color: var(--gray);
+            font-size: 12px;
+        }
+
+        /* ── MAIN ── */
+        .content {
+            padding: 48px 0 0;
+        }
+
+        .section {
+            margin-bottom: 52px;
+        }
+
+        .section-title {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* ── SERVICE CARDS ── */
+        .service-grid {
+            display: grid;
+            gap: 14px;
+        }
+
+        .service-card {
+            border: 1px solid var(--border);
+            padding: 22px 24px;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+
+        .service-card:hover {
+            border-color: #aaa;
+            transform: translateY(-1px);
+        }
+
+        .service-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+            gap: 12px;
+        }
+
+        .service-name {
+            font-size: 17px;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .badge {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 3px 8px;
+            font-weight: 600;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .badge-active {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .badge-soon {
+            background: var(--light-gray);
+            color: var(--gray);
+            border: 1px solid var(--border);
+        }
+
+        .badge-addon {
+            background: transparent;
+            color: var(--gray);
+            border: 1px solid var(--border);
+        }
+
+        .service-desc {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.55;
+            margin-bottom: 10px;
+        }
+
+        .service-meta {
+            font-size: 12px;
+            color: var(--gray);
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* ── COVERAGE ── */
+        .coverage-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .coverage-item {
+            padding: 11px 8px;
+            border: 1px solid var(--border);
+            text-align: center;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .coverage-item.primary {
+            border-color: var(--black);
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .coverage-note {
+            font-size: 13px;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        /* ── MARKETS ── */
+        .markets {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .market-tag {
+            padding: 7px 14px;
+            border: 1px solid var(--border);
+            font-size: 13px;
+            font-weight: 500;
+            cursor: default;
+            transition: all 0.15s;
+        }
+
+        .market-tag:hover {
+            background: var(--black);
+            color: var(--white);
+            border-color: var(--black);
+        }
+
+        /* ── WHY ── */
+        .why-block p {
+            font-size: 14px;
+            line-height: 1.75;
+            color: #555;
+            margin-bottom: 14px;
+        }
+
+        .why-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .why-block strong {
+            color: var(--black);
+            font-weight: 600;
+        }
+
+        /* ── CTA ── */
+        .cta {
+            background: var(--black);
+            color: var(--white);
+            padding: 48px 24px;
+            text-align: center;
+            margin-top: 52px;
+        }
+
+        .cta-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 30px;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .cta-sub {
+            font-size: 14px;
+            color: var(--gray);
+            margin-bottom: 28px;
+            max-width: 380px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 15px 36px;
+            background: var(--white);
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .cta-btn:hover {
+            background: #ddd;
+        }
+
+        .cta-note {
+            margin-top: 16px;
+            font-size: 12px;
+            color: #555;
+        }
+
+        /* ── FOOTER ── */
+        .footer {
+            padding: 28px 0;
+            text-align: center;
+            font-size: 12px;
+            color: var(--gray);
+            border-top: 1px solid var(--border);
+        }
+
+        .footer strong {
+            color: var(--black);
+            display: block;
+            margin-bottom: 6px;
+            font-size: 13px;
+        }
+
+        .footer p {
+            margin-top: 4px;
+        }
+
+        .footer .legal {
+            margin-top: 14px;
+            font-size: 11px;
+            color: #bbb;
+            line-height: 1.6;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 520px) {
+            h1 { font-size: 28px; }
+            .coverage-grid { grid-template-columns: repeat(2, 1fr); }
+            .avail-bar { flex-direction: column; gap: 2px; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="hero">
+    <div class="container">
+        <div class="logo-wrap">
+            <!-- Replace src below with your hosted logo URL -->
+            <img src="logo.png" alt="Harbinger Document Services" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="logo-fallback" style="display:none;">🪶</div>
+        </div>
+        <h1>Harbinger Document Services</h1>
+        <p class="tagline">Mobile Notary &amp; Document Solutions</p>
+        <div class="contact-bar">
+            <div class="contact-item">📍 Fort Collins, CO &amp; Northern Colorado</div>
+            <div class="contact-item"><a href="tel:+19706580425">(970) 658-0425</a></div>
+            <div class="contact-item"><a href="mailto:info@harbingerdocs.com">info@harbingerdocs.com</a></div>
+            <div class="contact-item"><a href="https://harbingerdocs.com">harbingerdocs.com</a></div>
+        </div>
+    </div>
+</header>
+
+<div class="avail-bar">
+    <div>
+        <div class="avail-main">Available 7 Days a Week</div>
+        <div class="avail-sub">Standard Hours: Mon–Sun 8:00 AM – 10:00 PM</div>
+    </div>
+    <div class="avail-sub">Same-day &amp; after-hours available — call or text</div>
+</div>
+
+<main class="content">
+    <div class="container">
+
+        <!-- Core Services -->
+        <div class="section">
+            <h2 class="section-title">Core Services</h2>
+            <div class="service-grid">
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-name">General Notarization</div>
+                        <span class="badge badge-active">Available Now</span>
+                    </div>
+                    <div class="service-desc">Acknowledgments, jurats, oaths, affirmations, and certified true copies of non-recordable documents. We travel to your location — office, job site, home, or campus.</div>
+                    <div class="service-meta">
+                        <span>$5 per notarial act + travel fee</span>
+                        <span>CO State Maximum</span>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-name">Loan Signing Agent</div>
+                        <span class="badge badge-active">Available Now</span>
+                    </div>
+                    <div class="service-desc">Certified Loan Signing Agent for refinances, purchases, HELOCs, reverse mortgages, and seller packages. Experienced with construction draws, lien waivers, sworn statements, and commercial loan packages.</div>
+                    <div class="service-meta">
+                        <span>$75–200 per signing</span>
+                        <span>Title &amp; Escrow Direct</span>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-name">Process Serving</div>
+                        <span class="badge badge-active">Available Now</span>
+                    </div>
+                    <div class="service-desc">Legal document delivery for attorneys, contractors, and property managers. Summons, complaints, subpoenas, eviction notices, and demand letters. Rush same-day available.</div>
+                    <div class="service-meta">
+                        <span>$50–85 per serve</span>
+                        <span>Rush same-day available</span>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-name">Apostille Facilitation</div>
+                        <span class="badge badge-active">Available Now</span>
+                    </div>
+                    <div class="service-desc">Full-service document prep, notarization, and courier to the Colorado Secretary of State for international authentication. Birth certificates, diplomas, corporate docs, powers of attorney.</div>
+                    <div class="service-meta">
+                        <span>$50–150 + state fees</span>
+                        <span>Denver SOS courier runs</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Support Services -->
+        <div class="section">
+            <h2 class="section-title">Document Support</h2>
+            <div class="service-grid">
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-name">Mobile Printing &amp; Copies</div>
+                        <span class="badge badge-addon">Add-On</span>
+                    </div>
+                    <div class="service-desc">On-site document printing, copying, and assembly. Perfect for job sites with no office support — loan packages, contracts, plans, and legal docs printed where you need them.</div>
+                    <div class="service-meta"><span>$0.15/page + equipment fee</span></div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-name">Document Courier</div>
+                        <span class="badge badge-addon">Add-On</span>
+                    </div>
+                    <div class="service-desc">Rush delivery of signed documents to title companies, courts, recording offices, and opposing counsel. Photo confirmation and route tracking on every run.</div>
+                    <div class="service-meta">
+                        <span>Local: $25</span>
+                        <span>Denver: $75</span>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-name">Fingerprinting</div>
+                        <span class="badge badge-soon">Coming Soon</span>
+                    </div>
+                    <div class="service-desc">Mobile ink card fingerprinting for background checks, licensing, and employment. Construction industry licensing, real estate broker applications, adoption paperwork.</div>
+                    <div class="service-meta"><span>Live Scan certification in progress</span></div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-name">I-9 Employment Verification</div>
+                        <span class="badge badge-soon">Coming Soon</span>
+                    </div>
+                    <div class="service-desc">Authorized representative for Form I-9 completion. Remote hire support for construction companies, seasonal crews, and multi-site employers.</div>
+                    <div class="service-meta"><span>HRSA certification in progress</span></div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Service Area -->
+        <div class="section">
+            <h2 class="section-title">Service Area</h2>
+            <div class="coverage-grid">
+                <div class="coverage-item primary">Fort Collins</div>
+                <div class="coverage-item">Wellington</div>
+                <div class="coverage-item">Loveland</div>
+                <div class="coverage-item">Greeley</div>
+                <div class="coverage-item">Windsor</div>
+                <div class="coverage-item">Timnath</div>
+                <div class="coverage-item">Cheyenne WY</div>
+                <div class="coverage-item">+ Extended</div>
+            </div>
+            <p class="coverage-note">Mobile service covers Larimer County, Weld County, and Southern Wyoming. Mileage fees apply beyond 25 miles from Fort Collins. Extended travel negotiable for large jobs.</p>
+        </div>
+
+        <!-- Industries -->
+        <div class="section">
+            <h2 class="section-title">Industries Served</h2>
+            <div class="markets">
+                <span class="market-tag">Construction</span>
+                <span class="market-tag">Real Estate</span>
+                <span class="market-tag">Title &amp; Escrow</span>
+                <span class="market-tag">Law Firms</span>
+                <span class="market-tag">Property Management</span>
+                <span class="market-tag">Colleges &amp; Universities</span>
+                <span class="market-tag">Small Business</span>
+                <span class="market-tag">Remote Workers</span>
+            </div>
+        </div>
+
+        <!-- Why Harbinger -->
+        <div class="section">
+            <h2 class="section-title">Why Harbinger</h2>
+            <div class="why-block">
+                <p><strong>We come to you.</strong> Job sites at 6 AM. Dorm rooms at 9 PM. Office parks at lunch. Documents can't wait for business hours, and neither can you.</p>
+                <p><strong>Construction &amp; real estate fluent.</strong> We know what a draw request looks like. We know the urgency of a Friday afternoon funding. Lien waivers, sworn statements, mechanic's liens, closing disclosures — we speak the language.</p>
+                <p><strong>Reliable &amp; discreet.</strong> Professional, bonded, and insured. Your documents are handled with care from pickup to delivery. Photo confirmation on every courier run.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+        <div class="container">
+            <div class="cta-title">Need Documents Handled Today?</div>
+            <div class="cta-sub">Call or text for fastest response. We typically confirm mobile appointments within 15 minutes during business hours.</div>
+            <a href="tel:+19706580425" class="cta-btn">Call (970) 658-0425</a>
+            <p class="cta-note">Or text "NOTARY" to (970) 658-0425 for after-hours requests</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <footer class="footer">
+            <strong>Harbinger Document Services</strong>
+            <p>Colorado Notary Public · Larimer &amp; Weld County</p>
+            <p>Errors &amp; Omissions Insurance · Bonded</p>
+            <div class="legal">
+                © 2026 Harbinger Document Services. All rights reserved.<br>
+                Not an attorney. Cannot provide legal advice or draft legal documents.
+            </div>
+        </footer>
+    </div>
+
+</main>
+
+</body>
+</html>
