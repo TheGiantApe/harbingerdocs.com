@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon — Harbinger Document Services</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --concrete: #1c1c1c;
+      --concrete-mid: #2a2a2a;
+      --concrete-light: #3a3a3a;
+      --paper: #e8e4dc;
+      --paper-dim: #b8b4ac;
+      --gunmetal: #4a5058;
+      --accent: #c8a96e;
+      --white: #f0ece4;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: var(--concrete);
+      color: var(--paper);
+      font-family: 'Barlow', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.6;
+    }
+
+    .top-rule {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gunmetal) 20%, var(--gunmetal) 80%, transparent);
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      padding: 2rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+      border-bottom: 1px solid var(--concrete-light);
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+    }
+
+    .logo-area img {
+      height: 40px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
+    }
+
+    .logo-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--paper);
+      line-height: 1.2;
+    }
+
+    .logo-sub {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 300;
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--paper-dim);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    /* Placeholder glyph — a wax seal / stamp feeling */
+    .glyph {
+      width: 100px;
+      height: 100px;
+      border: 1px solid var(--concrete-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2rem;
+      position: relative;
+    }
+
+    .glyph::before {
+      content: '';
+      position: absolute;
+      inset: 6px;
+      border: 1px solid var(--gunmetal);
+      border-radius: 50%;
+    }
+
+    .glyph-inner {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.15em;
+      color: var(--gunmetal);
+      text-transform: uppercase;
+    }
+
+    .divider-rule {
+      width: 60px;
+      height: 1px;
+      background: var(--accent);
+      margin: 2rem auto;
+    }
+
+    .ashcroft-block {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .ashcroft-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .ashcroft-primary {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+    }
+
+    .ashcroft-note {
+      font-family: 'Barlow', sans-serif;
+      font-weight: 300;
+      font-size: 0.95rem;
+      color: var(--paper-dim);
+      line-height: 1.75;
+      font-style: italic;
+    }
+
+    .ashcroft-note em {
+      font-style: normal;
+      color: var(--paper);
+    }
+
+    /* Status indicator */
+    .status-bar {
+      margin: 2.5rem auto 0;
+      max-width: 360px;
+      border: 1px solid var(--concrete-light);
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .status-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--paper-dim);
+      text-align: left;
+    }
+
+    .status-text strong {
+      display: block;
+      color: var(--paper);
+      font-weight: 600;
+    }
+
+    /* Nav suggestions */
+    .nav-suggestions {
+      margin-top: 3.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gunmetal);
+      margin-bottom: 0.75rem;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+
+    .nav-link {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--paper-dim);
+      text-decoration: none;
+      padding: 0.6rem 1.25rem;
+      border: 1px solid var(--concrete-light);
+      transition: all 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--white);
+      border-color: var(--gunmetal);
+      background: var(--concrete-mid);
+    }
+
+    .nav-link.primary {
+      border-color: var(--gunmetal);
+      color: var(--paper);
+    }
+
+    .nav-link.primary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    footer {
+      padding: 1.5rem 3rem;
+      border-top: 1px solid var(--concrete-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-ashcroft {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.7rem;
+      color: var(--gunmetal);
+      font-style: italic;
+    }
+
+    .footer-brand {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--concrete-light);
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 1.5rem; }
+      footer { padding: 1.25rem 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+      .nav-links { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-rule"></div>
+
+  <header>
+    <a href="/" class="logo-area">
+      <img src="/logo.png" alt="Harbinger Document Services" onerror="this.style.display='none'">
+      <div>
+        <div class="logo-text">Harbinger</div>
+        <div class="logo-sub">Document Services</div>
+      </div>
+    </a>
+  </header>
+
+  <main>
+
+    <div class="glyph">
+      <span class="glyph-inner">HDS</span>
+    </div>
+
+    <div class="ashcroft-block">
+      <div class="ashcroft-label">— Ashcroft, attending —</div>
+      <div class="ashcroft-primary">This service is not yet in operation.</div>
+      <p class="ashcroft-note">
+        The page exists. The intention is genuine. The infrastructure, however,
+        is still being <em>persuaded to cooperate</em> — a process I find
+        requires considerably more patience than it did forty years ago,
+        despite what the brochures suggest.
+        Harbinger will advise when this changes.
+      </p>
+    </div>
+
+    <div class="status-bar">
+      <div class="status-dot"></div>
+      <div class="status-text">
+        <strong>In Preparation</strong>
+        Check back or contact us directly
+      </div>
+    </div>
+
+    <nav class="nav-suggestions">
+      <div class="nav-label">Available now, should you require assistance</div>
+      <div class="nav-links">
+        <a href="/" class="nav-link primary">← Return Home</a>
+        <a href="/#services" class="nav-link">Services</a>
+        <a href="/#pricing" class="nav-link">Pricing</a>
+        <a href="/#contact" class="nav-link">Contact</a>
+        <a href="/#book" class="nav-link">Book an Appointment</a>
+      </div>
+    </nav>
+
+  </main>
+
+  <footer>
+    <span class="footer-ashcroft">"Patience is a virtue I have had considerable time to cultivate."</span>
+    <span class="footer-brand">Harbinger Document Services &nbsp;·&nbsp; Fort Collins, CO</span>
+  </footer>
+
+</body>
+</html>
